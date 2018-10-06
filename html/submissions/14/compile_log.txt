@@ -1,0 +1,96 @@
+submission.cpp:12:19: error: empty character constant
+     ReadLn(n); X:=''; res:=0;
+                   ^
+submission.cpp:1:1: error: ‘Program’ does not name a type
+ Program DAYNGO;
+ ^
+submission.cpp:2:1: error: ‘Var’ does not name a type
+ Var
+ ^
+submission.cpp:4:7: error: found ‘:’ in nested-name-specifier, expected ‘::’
+   res :Int64;
+       ^
+submission.cpp:4:3: error: ‘res’ does not name a type
+   res :Int64;
+   ^
+submission.cpp:5:5: error: found ‘:’ in nested-name-specifier, expected ‘::’
+   X :String;
+     ^
+submission.cpp:5:3: error: ‘X’ does not name a type
+   X :String;
+   ^
+submission.cpp:6:5: error: found ‘:’ in nested-name-specifier, expected ‘::’
+   D :Array['('..')'] of Byte;
+     ^
+submission.cpp:6:3: error: ‘D’ does not name a type
+   D :Array['('..')'] of Byte;
+   ^
+submission.cpp:8:3: error: ‘procedure’ does not name a type
+   procedure Enter;
+   ^
+submission.cpp:9:3: error: ‘var’ does not name a type
+   var
+   ^
+submission.cpp:11:3: error: ‘begin’ does not name a type
+   begin
+   ^
+submission.cpp:12:16: error: ‘X’ does not name a type
+     ReadLn(n); X:=''; res:=0;
+                ^
+submission.cpp:12:23: error: ‘res’ does not name a type
+     ReadLn(n); X:=''; res:=0;
+                       ^
+submission.cpp:13:5: error: expected unqualified-id before ‘for’
+     for i:=1 to n do X:=X+' ';
+     ^
+submission.cpp:14:5: error: ‘D’ does not name a type
+     D['(']:=0; D[')']:=0;
+     ^
+submission.cpp:14:16: error: ‘D’ does not name a type
+     D['(']:=0; D[')']:=0;
+                ^
+submission.cpp:15:3: error: ‘end’ does not name a type
+   end;
+   ^
+submission.cpp:17:3: error: ‘procedure’ does not name a type
+   procedure Back(i :Byte);
+   ^
+submission.cpp:18:3: error: ‘var’ does not name a type
+   var
+   ^
+submission.cpp:20:3: error: ‘begin’ does not name a type
+   begin
+   ^
+submission.cpp:24:22: error: ‘X’ does not name a type
+           Inc(D[j]); X[i]:=j;
+                      ^
+submission.cpp:25:11: error: expected unqualified-id before ‘if’
+           if (D['(']>=D[')']) then
+           ^
+submission.cpp:30:17: error: ‘end’ does not name a type
+                 end
+                 ^
+submission.cpp:32:7: error: ‘end’ does not name a type
+       end;
+       ^
+submission.cpp:33:14: error: expected constructor, destructor, or type conversion before ‘(’ token
+           Dec(D[j]);
+              ^
+submission.cpp:34:9: error: ‘end’ does not name a type
+         end;
+         ^
+submission.cpp:35:3: error: ‘end’ does not name a type
+   end;
+   ^
+submission.cpp:37:1: error: ‘Begin’ does not name a type
+ Begin
+ ^
+submission.cpp:39:7: error: expected constructor, destructor, or type conversion before ‘(’ token
+   Back(1);
+       ^
+submission.cpp:40:8: error: expected constructor, destructor, or type conversion before ‘(’ token
+   Write(res);
+        ^
+submission.cpp:41:1: error: ‘End’ does not name a type
+ End.
+ ^

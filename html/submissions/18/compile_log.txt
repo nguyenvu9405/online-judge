@@ -1,0 +1,7 @@
+submission.cpp: In function ‘int main()’:
+submission.cpp:5:19: error: ‘n’ was not declared in this scope
+     scanf("%lld",&n);
+                   ^
+submission.cpp:8:20: warning: format ‘%lld’ expects argument of type ‘long long int’, but argument 2 has type ‘int’ [-Wformat=]
+     printf("%lld",r);
+                    ^

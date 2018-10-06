@@ -1,0 +1,4 @@
+submission.cpp: In function ‘int main()’:
+submission.cpp:6:12: error: unable to find string literal operator ‘operator""n’ with ‘const char [5]’, ‘long unsigned int’ arguments
+     printf("%lld"n/2);
+            ^

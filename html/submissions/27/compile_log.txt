@@ -1,0 +1,28 @@
+submission.cpp:1:1: error: stray ‘\’ in program
+ \n#include<cstdio>
+ ^
+submission.cpp:1:3: error: stray ‘#’ in program
+ \n#include<cstdio>
+   ^
+submission.cpp:1:2: error: ‘n’ does not name a type
+ \n#include<cstdio>
+  ^
+In file included from /usr/include/c++/5/cmath:43:0,
+                 from submission.cpp:3:
+/usr/include/c++/5/ext/type_traits.h:160:35: error: ‘__gnu_cxx::__is_null_pointer’ declared as an ‘inline’ variable
+   __is_null_pointer(std::nullptr_t)
+                                   ^
+/usr/include/c++/5/ext/type_traits.h:160:35: error: ‘bool __gnu_cxx::__is_null_pointer’ redeclared as different kind of symbol
+/usr/include/c++/5/ext/type_traits.h:155:5: note: previous declaration ‘template<class _Type> bool __gnu_cxx::__is_null_pointer(_Type)’
+     __is_null_pointer(_Type)
+     ^
+/usr/include/c++/5/ext/type_traits.h:160:21: error: ‘nullptr_t’ is not a member of ‘std’
+   __is_null_pointer(std::nullptr_t)
+                     ^
+submission.cpp: In function ‘int main()’:
+submission.cpp:39:19: error: ‘scanf’ was not declared in this scope
+     scanf("%d", &n);
+                   ^
+submission.cpp:46:23: error: ‘printf’ was not declared in this scope
+     printf("%d\n", cnt);
+                       ^

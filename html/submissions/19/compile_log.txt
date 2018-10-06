@@ -1,0 +1,8 @@
+Free Pascal Compiler version 3.0.0+dfsg-2 [2016/01/28] for x86_64
+Copyright (c) 1993-2015 by Florian Klaempfl and others
+Target OS: Linux for x86-64
+Compiling submission.cpp
+submission.cpp(1,1) Error: Illegal char constant
+submission.cpp(1,2) Fatal: Syntax error, "BEGIN" expected but "const string" found
+Fatal: Compilation aborted
+Error: /usr/bin/ppcx64 returned an error exitcode

@@ -1,0 +1,90 @@
+submission.cpp:9:2: error: stray ‘#’ in program
+ }#include<cstdio>
+  ^
+submission.cpp:9:3: error: ‘include’ does not name a type
+ }#include<cstdio>
+   ^
+In file included from submission.cpp:10:0:
+/usr/include/c++/5/cstring:75:11: error: ‘::memchr’ has not been declared
+   using ::memchr;
+           ^
+/usr/include/c++/5/cstring:76:11: error: ‘::memcmp’ has not been declared
+   using ::memcmp;
+           ^
+/usr/include/c++/5/cstring:77:11: error: ‘::memcpy’ has not been declared
+   using ::memcpy;
+           ^
+/usr/include/c++/5/cstring:78:11: error: ‘::memmove’ has not been declared
+   using ::memmove;
+           ^
+/usr/include/c++/5/cstring:79:11: error: ‘::memset’ has not been declared
+   using ::memset;
+           ^
+/usr/include/c++/5/cstring:80:11: error: ‘::strcat’ has not been declared
+   using ::strcat;
+           ^
+/usr/include/c++/5/cstring:81:11: error: ‘::strcmp’ has not been declared
+   using ::strcmp;
+           ^
+/usr/include/c++/5/cstring:82:11: error: ‘::strcoll’ has not been declared
+   using ::strcoll;
+           ^
+/usr/include/c++/5/cstring:83:11: error: ‘::strcpy’ has not been declared
+   using ::strcpy;
+           ^
+/usr/include/c++/5/cstring:84:11: error: ‘::strcspn’ has not been declared
+   using ::strcspn;
+           ^
+/usr/include/c++/5/cstring:85:11: error: ‘::strerror’ has not been declared
+   using ::strerror;
+           ^
+/usr/include/c++/5/cstring:86:11: error: ‘::strlen’ has not been declared
+   using ::strlen;
+           ^
+/usr/include/c++/5/cstring:87:11: error: ‘::strncat’ has not been declared
+   using ::strncat;
+           ^
+/usr/include/c++/5/cstring:88:11: error: ‘::strncmp’ has not been declared
+   using ::strncmp;
+           ^
+/usr/include/c++/5/cstring:89:11: error: ‘::strncpy’ has not been declared
+   using ::strncpy;
+           ^
+/usr/include/c++/5/cstring:90:11: error: ‘::strspn’ has not been declared
+   using ::strspn;
+           ^
+/usr/include/c++/5/cstring:91:11: error: ‘::strtok’ has not been declared
+   using ::strtok;
+           ^
+/usr/include/c++/5/cstring:92:11: error: ‘::strxfrm’ has not been declared
+   using ::strxfrm;
+           ^
+/usr/include/c++/5/cstring:93:11: error: ‘::strchr’ has not been declared
+   using ::strchr;
+           ^
+/usr/include/c++/5/cstring:94:11: error: ‘::strpbrk’ has not been declared
+   using ::strpbrk;
+           ^
+/usr/include/c++/5/cstring:95:11: error: ‘::strrchr’ has not been declared
+   using ::strrchr;
+           ^
+/usr/include/c++/5/cstring:96:11: error: ‘::strstr’ has not been declared
+   using ::strstr;
+           ^
+submission.cpp: In function ‘void sieve(int)’:
+submission.cpp:17:27: error: ‘memset’ was not declared in this scope
+     memset(p, 1, sizeof(p));
+                           ^
+submission.cpp: In function ‘int main()’:
+submission.cpp:45:5: error: redefinition of ‘int main()’
+ int main()
+     ^
+submission.cpp:4:6: note: ‘int main()’ previously defined here
+  int main() {
+      ^
+submission.cpp:49:27: error: ‘memset’ was not declared in this scope
+     memset(a, 0, sizeof(a));
+                           ^
+submission.cpp:54:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘long int’ [-Wformat=]
+     printf("%d\n", cnt);
+                       ^

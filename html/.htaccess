@@ -1,0 +1,5 @@
+RewriteEngine on
+
+RewriteRule ^problems/([^\.]+)$ problems.php?code=$1 [L,NC]
+RewriteRule ^([^\.]+)$ $1.php [NC,L] 
+ErrorDocument 404 /404.php

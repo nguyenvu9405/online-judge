@@ -1,0 +1,1245 @@
+$back_color_1: #E0E0E0
+$back_color_2: #F5F5F5
+$back_color_3: #FAFAFA
+$back_color_4: #FFFFFF
+
+$primary_color: #388e3c
+$primary_color_light: #6abf69
+$primary_color_dark: #00600f
+$text_on_p: #ffffff
+
+$secondary_color: #f4511e
+$secondary_color_light: #ff844c
+$secondary_color_dark: #b91400
+$text_on_s: #ffffff
+
+$primary_text_color: rgba(0,0,0,0.87)
+$secondary_text_color: rgba(0,0,0,0.54)
+$disable_text_color: rgba(0,0,0,0.38)
+$divider_color: rgba(0,0,0,0.12)
+
+$normal_text: #000000
+
+.primary_text
+  color: rgba(0,0,0,0.87)
+
+.secondary_text
+  color: $secondary_text_color
+
+.disable_text
+  color: rgba(0,0,0,0.38)
+
+.divider_color
+  color: rgba(0,0,0,0.12)
+
+
+$font_family_header: 'Roboto Mono', monospace
+$font_family_content: 'Roboto', sans-serif
+$font_family_title: 'Roboto Condensed', sans-serif
+
+$size_1: 64px
+$size_1_2: 56px
+$size_2: 24px
+$size_3: 20px
+$size_4: 16px // distance between elementss
+$size_5: 8px
+
+$icon_size_48: 48px
+$icon_size_36: 36px
+$icon_size_24: 24px
+$icon_size_18: 18px
+
+$font_regular: 400
+$font_medium: 500
+
+.text_title
+  font: 20px $font_family_title
+  text-transform: uppercase
+.text_header
+  font: 18px $font_family_title
+  text-transform: uppercase
+
+$font_head_line: 56px $font_family_content
+$font_sub_heading: 16px $font_family_content
+$font_body_2: 14px $font_family_content
+$font_button: 14px $font_family_content
+$font_body_1: 14px $font_family_content
+$font_caption: 14px $font_family_content
+$font_label: 12px $font_family_content
+$font_label_big_lg: 14px $font_family_title
+$font_table_header: 14px $font_family_content
+$font_dropdown: 15px $font_family_content
+$small_break_point: 640px
+$medium_break_point: 800px
+$large_break_point: 1280px
+$border_radius: 2px
+
+
+@mixin shadow($level: 1)
+  @if $level == 1
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+  @else if $level == 2
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+  @else if $level == 3
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+  @else if $level == 4
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+  @else if $level == 5
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)
+
+input:-webkit-autofill //preven yellow color to appear when choose autocomplete options
+  -webkit-box-shadow: 0 0 0 30px white inset
+input::-webkit-calendar-picker-indicator
+  display: none
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+  -webkit-appearance: none
+  margin: 0
+
+*
+  margin: 0px
+  padding: 0px
+  outline: 0px
+  border: 0px
+  box-sizing: border-box
+  font-family: $font_family_content
+  color: $primary_text_color
+
+
+body
+  background-color: $back_color_3
+  display: block
+  padding-top: $size_1
+  min-height: 100vh
+
+span
+  &.condensed
+    font: 14px $font_family_title
+
+button
+  cursor: pointer
+
+i
+  &.success
+    color: $primary_color
+a
+  text-decoration: none
+  cursor: pointer
+  span
+    vertical-align: middle
+  i:not(:last-child)
+    color: $primary_color
+    margin-right: 8px
+    vertical-align: middle
+  &.disable
+    color: $disable_text_color
+    i
+      color: $disable_text_color
+    &:hover
+      cursor: not-allowed
+  &.warning
+    font-size: 13px
+    color: $secondary_text_color
+    display: inline-block
+    padding: 8px 0px
+  
+.divider
+  height: 1px
+  background-color: $divider_color
+  &.margin-8
+    margin: 8px 0px
+
+#scrim
+  z-index: 6
+  position: fixed
+  left: 0px
+  right: 0px
+  top: 0px
+  bottom: 0px
+  background-color: $secondary_text_color
+  display: none
+  &.expand
+    display: block
+
+#modal
+  z-index: 6
+  position: fixed
+  display: none
+  left: 0px
+  right: 0px
+  padding: 24px 24px 24px
+  top: 0px
+  width: 100%
+  height: 100vh
+  overflow: auto
+  background-color: $secondary_text_color
+  #code-editor
+    border-top: 1px solid $divider_color
+    position: absolute
+    top: 16px
+    right: 0
+    bottom: 0
+    left: 0
+  .modal-content
+    margin: 0px auto
+    max-width: 720px
+    .body-container
+      height: 500px
+      position: relative
+
+
+
+#code-editor
+  .ace_content
+    *
+      font:  12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace !important
+
+li.ver-list-item
+  &:hover, &.active
+    background-color: $back_color_2
+
+
+#left-side-nav
+  @include shadow(2)
+  z-index: 7
+  margin-left: -220px
+  width: 220px
+  position: fixed
+  top: 0px
+  left: 0px
+  bottom: 0px
+  background-color: $back_color_4
+  ul
+    li
+      width: 100%
+      a
+        display: block
+        height: 48px
+  &.expand
+    transition: 200ms
+    margin-left: 0px
+
+#top_nav
+  @include shadow(2)
+  z-index: 5
+  background-color: $primary_color
+  position: fixed
+  top: 0px
+  left: 0px
+  right: 0px
+  padding: 0px $size_4 0px $size_4
+  height: $size_1_2
+  @media screen and (min-width: $medium_break_point)
+    height: $size_1
+  .nav-button
+    &:hover
+      background-color: $back_color_4
+      color: $secondary_color
+      i
+        color: $secondary_color
+  .nav-button-text
+    padding: 0px 16px
+    display: inline-block
+    font: 18px $font_family_title
+    line-height: $size_1
+    color: $text_on_p
+    background-color: transparent
+  .hover-container
+    &:hover
+      .dropdown-container
+        display: block
+      .nav-button-text
+        background-color: white
+        color: $secondary_color
+  .nav-button-icon
+    width: $size_1_2
+    height: $size_1_2
+    background-color: transparent
+    text-align: center
+    @media screen and (min-width: $medium_break_point)
+      width: $size_1
+      height: $size_1
+    i
+      color: $text_on_p
+      vertical-align: middle
+  #hambuger
+    display: inline-block
+    float: left
+    @media screen and (min-width: $medium_break_point)
+      display: none
+  #nav-left
+    float: left
+    display: none
+    @media screen and (min-width: $medium_break_point)
+      display: inline-block
+  #nav-right
+    float: right
+    display: inline-block
+  .nav-menu
+    display: inline
+    list-style-type: none
+    &>li
+      display: inline-block
+  .nav-logo
+    display: inline-block
+    float: left
+    padding: 8px
+    @media screen and (max-width: $medium_break_point)
+      padding: 4px
+      position: absolute
+      left: 50%
+      transform: translateX(-50%)
+
+    a
+      border-radius: 2px
+      background-color: $back_color_4
+      color: $secondary_color
+      display: inline-block
+      font-family: 'Cabin Sketch', cursive
+      padding: 0px 16px
+      line-height: 48px
+      font-size: 32px
+      i
+        display: none
+
+
+.card
+  background-color: $back_color_4
+  border-radius: $border_radius
+  @include shadow(1)
+
+.full-height-content
+  height: 100%
+.content
+  padding: $size_4
+  z-index: 3
+  @media screen and (min-width: $medium_break_point)
+    padding: $size_2
+
+
+  //.grid-2-1
+  //  display: grid
+  //  min-height: 100vh
+  //  grid-column-gap: 24px
+  //  grid-row-gap: 24px
+  //  grid-template-columns: 1fr
+  //  grid-column-gap: 24px
+  //  padding: $size_1+$size_3 $size_2 $size_2 $size_2
+  //  @media screen and (min-width: $medium_break_point)
+  //    grid-template-columns: 1fr 360px
+  //  .grid-item
+  //    align-self: start
+  //  .grid-column-1
+  //    grid-column-start: 1
+
+.clear-fix
+  clear: both
+.panel
+  margin-bottom: $size_4
+  @media screen and (min-width: $medium_break_point)
+    margin-bottom: $size_2
+  &:last-child
+    margin-bottom: 0px
+  .header-container
+    padding: $size_2 $size_4 0px
+    &:last-child
+      padding-bottom: $size_2
+    @media screen and (min-width: $medium_break_point)
+      padding-left: $size_2
+      padding-right: $size_2
+    &.space-distance
+      padding-bottom: $size_4
+    &.space-around
+      padding-bottom: $size_2
+    &.darker
+      background-color: $back_color_2
+    .title
+      color: $secondary_color
+      i
+        color: $secondary_color
+        vertical-align: middle
+      span
+        @extend .text_title
+        text-transform: uppercase
+        color: $secondary_color
+        vertical-align: middle
+        &.non-upper
+          text-transform: none
+          font-size: 24px
+      .pull-right
+        float: right
+  .body-container
+    padding: $size_4
+    overflow: auto
+    &:last-child
+      padding-bottom: $size_2
+    &:first-child
+      padding-top: $size_2
+    @media screen and (min-width: $medium_break_point)
+      padding: $size_4 $size_2
+  .nlrp-body-container
+    padding: $size_4 0px
+  .only-body-container
+    padding: $size_4
+    @media screen and (min-width: $medium_break_point)
+      padding: $size_2
+  .footer-container
+    padding: 0px $size_4 $size_2
+    @media screen and (min-width: $medium_break_point)
+      padding: 0px $size_2 $size_2
+    &.thin
+      padding: 4px $size_2 12px $size_2
+    &.darker
+      background-color: $back_color_2
+    &.inner-center
+      padding: 0px 0px $size_4
+      text-align: center
+    &.inner-right
+      text-align: right
+  .action-container
+    padding: 8px 0px
+
+.text-center
+  text-align: center
+
+.row-container
+  padding-top: 8px
+  &:first-child
+    padding-top: 0px
+
+.multiform-container
+  .header-container
+    padding: $size_2
+    background-color: $back_color_2
+    text-align: center
+    .title
+      display: inline-block
+      i
+        color:  $secondary_color
+        vertical-align: middle
+        margin-right: 8px
+        font-size: 24px
+      span
+        color:  $secondary_color
+        vertical-align: middle
+        @extend .text_title
+  .body-container
+    padding: $size_5 $size_2 $size_4 $size_2
+    .sub-container
+      padding: $size_5 0px $size_5 0px
+      .sub-header
+        padding: $size_5 0px $size_5 0px
+        label
+          display: inline-block
+          width: 96px
+          text-align: center
+          line-height: $size_2
+          font-size: 14px
+          font-family: $font_family_title
+          text-transform: uppercase
+          background-color: $primary_color
+          color: $text_on_p
+      .sub-content
+        .row
+          display: flex
+          flex-wrap: wrap
+          .item
+            margin-right: 8px
+          .equal-growth
+            flex-grow: 1
+  .footer-container
+    padding: $size_2 $size_2 $size_2 $size_2
+    background-color: $back_color_2
+    text-align: center
+    .raise-button
+      background-color: $secondary_color
+
+.expand
+  display: block !important
+
+.dropdown
+  position: relative
+  .dropdown-container
+    @include shadow(3)
+    background-color: $back_color_4
+    border-radius: $border_radius
+    display: none
+    position: absolute
+    right: 0px
+    font: $font_dropdown
+    .header-container
+      padding: $size_4 $size_4 $size_5 $size_4
+      .title
+        @extend .text_title
+        color: $secondary_color
+    .body-container
+      padding: $size_5 $size_4 $size_5 $size_4
+    .footer-container
+      padding: $size_5 $size_4 $size_4 $size_4
+
+.vertical-list-container
+  padding: 8px 0px
+  ul
+    text-decoration: none
+    list-style-type: none
+    padding: 0px 0px 0px 0px
+    li
+      padding: 0px $size_4
+      height: 48px
+      overflow: hidden
+      @media screen and (min-width: $medium_break_point)
+        &.more-padding-md
+          padding: 0px $size_2
+          a
+            span
+              margin-left: $size_5
+      a
+        display: block
+        white-space: nowrap
+        span
+          display: inline-block
+          text-align: center
+          color: $normal_text
+          font-size: 16px
+          line-height: 48px
+        i
+          margin-right: $size_4
+          vertical-align: middle
+          font-size: 24px
+          color: $primary_color
+          &.grey-color
+            color: $secondary_text_color
+
+
+
+
+.table-container
+  padding: $size_4 0px
+  overflow: auto
+  table
+    width: 100%
+    table-layout: fixed
+    border-collapse: collapse
+    tr
+      height: 52px
+      border-bottom: 1px solid $divider_color
+      &.no-border
+        border: none
+      &.active
+        background-color: $back_color_3
+    td,th
+      overflow: hidden
+      word-break: break-all
+      vertical-align: middle
+      text-align: left
+      padding: 4px $size_5
+      @media screen and (min-width: $medium_break_point)
+        padding: 8px $size_5
+        &:first-child
+          padding: 8px $size_5 8px 24px
+        &:last-child
+          padding: 8px 24px 8px $size_5
+      &.no-padding
+        padding: 0px
+    .icon-col
+      padding: 0px !important
+      text-align: center
+    .number-col,.center-col
+      text-align: center
+  &:last-child
+    padding-bottom: $size_2
+    tr:last-child
+      border-bottom: none
+
+.status-table
+  .id-col
+    width: 40px
+  .user-col
+    width: 64px
+  .problem-col
+    width: 48px
+  .result-col
+    width: 40px
+  .time-col
+    display: none
+  .mem-col
+    display: none
+  .lang-col
+    display: none
+  @media screen and (min-width: $small_break_point)
+    .time-col
+      width: 40px
+      display: table-cell
+    .mem-col
+      width: 40px
+      display: table-cell
+    .lang-col
+      width: 40px
+      display: table-cell
+
+
+
+.col-1
+  width: 8.33%
+.col-2
+  width: 16.66%
+.col-3
+  width: 25%
+.col-4
+  width: 33.33%
+.col-5
+  width: 41.66%
+.col-6
+  width: 50%
+.col-7
+  width: 58.33%
+.col-8
+  width: 66.66%
+.col-9
+  width: 75%
+.col-10
+  width: 83.33%
+.col-11
+  width: 91.66%
+.col-12
+  width: 100%
+
+.description-container
+  padding: $size_5 0px
+  overflow: auto
+  table
+    width: 100%
+    border-collapse: collapse
+    tr
+      border-bottom: 1px solid $divider_color
+      &.no-border
+        border: none
+    td
+      vertical-align: middle
+      text-align: left
+      padding: 12px $size_5 12px $size_5
+      &:first-child
+        padding: 12px $size_5 12px $size_4
+        @media screen and (min-width: $medium_break_point)
+          padding-left: $size_2
+    .center-col
+      text-align: center
+  &:last-child
+    padding-bottom: $size_2
+    tr:last-child
+      border-bottom: none
+    tr:last-child
+      border-bottom: none
+
+
+
+.link
+  text-decoration: underline
+  transition: 200ms
+  &:hover
+    color: $primary_color_dark
+
+
+.flat-button
+  display: inline-block
+  border-radius: $border_radius
+  text-transform: uppercase
+  margin-left: 8px
+  &:last-child
+    margin-right: 8px
+  font: $font_button
+  font-weight: 500
+  cursor: pointer
+  height: 36px
+  line-height: 36px
+  padding: 0px 16px
+  background-color: transparent
+  color: $primary_color
+  transition: 200ms
+  span
+    vertical-align: middle
+    line-height: 36px
+    color: $text_on_p
+  &:hover
+    color: darken($primary_color,12%)
+  &:active
+    color: lighten($primary_color,12%)
+
+.raise-button
+  @include shadow(1)
+  display: inline-block
+  border-radius: $border_radius
+  text-transform: uppercase
+  font: 14px $font_family_content
+  font-weight: $font_medium
+  height: 36px
+  line-height: 36px
+  padding: 0px 16px
+  background-color: $primary_color
+  color: $text_on_s
+  transition: 200ms
+  i
+    font-size: 18px
+    vertical-align: middle
+    margin-right: 4px
+    color: $text_on_p
+  span
+    vertical-align: middle
+    line-height: 36px
+    color: $text_on_p
+  &:hover
+    @include shadow(2)
+    background-color: darken($primary_color,12%)
+  &:active
+    @include shadow(3)
+    background-color: lighten($primary_color,12%)
+
+
+.tag-box
+  display: flex
+  flex-wrap: wrap
+  grid-row-gap: 4px
+  transition: 200ms
+  &.input-border-bot
+    border-bottom: 1px solid $back_color_1
+    &:hover
+      border-bottom: 1px solid $secondary_color
+  input
+    border: none !important
+    display: inline-block
+    flex-basis: 100px
+    flex-grow: 1
+    height: 36px
+  .tag
+    display: inline-block
+    border-radius: 4px
+    height: 32px
+    background-color: rgba(0,0,0,0.12)
+    margin: 0px 4px 4px 0px
+    i
+      font-size: 24px
+      @extend .disable_text
+      vertical-align: middle
+      padding: 0px 4px 0px 4px
+      cursor: pointer
+    span
+      display: inline-block
+      font-size: 14px
+      @extend .secondary_text
+      vertical-align: middle
+    &:hover
+      background-color: $secondary_text_color
+      i
+        color: white
+      span
+        color: white
+  .deletable-tag
+    span
+      padding: 8px 0px 8px 12px
+  .non-deletable-tag
+    span
+      display: inline-block
+      padding: 8px 12px 8px 12px
+      font-size: 14px
+      @extend .secondary_text
+      vertical-align: middle
+
+
+
+.tooltips
+  display: inline-block
+  height: 100%
+  position: relative
+  i
+    font-size: 18px
+    cursor: help
+    @extend .primary_text
+    vertical-align: middle
+  .tooltip-text
+    @extend .card
+    z-index: 100
+    position: absolute
+    visibility: hidden
+    font-size: 12px
+    letter-spacing: .2px
+    width: 100px
+    border-radius: 2px
+    padding: 4px
+    text-align: center
+    color: white
+    background-color: grey
+    left: -50px
+    top: 24px
+    &::after
+      content: ""
+      position: absolute
+      left: 50%
+      top: -12px
+      border-width: 6px
+      margin-left: 3px
+      border-style: solid
+      border-color: transparent transparent grey transparent
+  &:hover
+    .tooltip-text
+      visibility: visible
+
+.label-condensed
+  label
+    text-transform: uppercase
+    font: $font_label_big_lg
+    color: $secondary_text_color
+
+.label-normal
+  label
+    text-transform: uppercase
+    font: 14px $font_family_content
+    color: $secondary_text_color
+
+
+.input-field
+  padding: $size_5 0px $size_5 0px
+  .label
+    label
+      line-height: 18px
+      text-transform: uppercase
+      font: $font_label
+      @extend .primary_text
+  textarea
+    margin: $size_5 0px $size_5 0px
+    border: 1px solid $disable_text_color
+    height: 200px
+    &.full-width
+      width: 100%
+  .editor-input
+    margin: $size_5 0px $size_5 0px
+    border: 1px solid $back_color_1
+  input
+    width: 100%
+    padding: $size_5 0px
+    font: $font_sub_heading
+    border-bottom: 1px solid $back_color_1
+    transition: 200ms
+    &:focus
+      border-bottom: 1px solid $secondary_color
+      &+label
+        @extend .primary_text
+    &+.error-message
+      display: none
+    &:not(:placeholder-shown):not(:focus):invalid+.error-message
+      display: block
+  &:hover
+    label
+      @extend .primary_text
+    input
+      border-bottom: 1px solid $secondary_color
+
+$error_color: #ef5350
+
+.helper-text
+  padding-top: 8px
+  font-size: 12px
+  &:empty::before
+    content: '\200b'
+  &.hint
+    color: $secondary_text_color
+  &.error
+    color: $error_color
+    visibility: visible
+    &::before
+      content: 'Error: '
+
+
+#cke_editor
+  margin: $size_5 0px $size_5 0px
+  padding: 1px
+
+.register-form-container
+  @media screen and (min-width: $medium_break_point)
+    width: 480px
+
+.pagination
+  display: inline-block
+  a
+    font-size: 18px
+    line-height: 20px
+    display: inline-block
+    padding: 4px 8px
+    text-decoration: none
+    border-radius: 2px
+    &:hover:not(.active)
+      background-color: $back_color_2
+  i
+    font-size: 24px
+    line-height: 24px
+    vertical-align: middle
+  .active
+    background-color: $primary_color
+    color: $text_on_s
+
+#user_control_dropdown
+  min-width: 200px
+#login_dropdown
+  min-width: 270px
+
+.error-message
+  font-size: 12px
+  color: $secondary_color
+  padding-top: 8px
+
+#notification-container
+  display: flex
+  flex-direction: column-reverse
+  padding: 0px 24px 16px 0px
+  position: fixed
+  right: 0px
+  bottom: 0px
+  .notification
+    padding: 8px 16px 8px 16px
+    margin: 8px 0px 8px 0px
+    width: 280px
+    animation: notify 6s 1 forwards
+    display: block
+    .title
+      padding: 8px 0px 8px 0px
+      text-transform: uppercase
+      font: 16px $font_family_title
+      border-bottom: 1px solid rgba(0,0,0,0.12)
+      i
+        color: $primary_color
+        font-size: 18px
+        vertical-align: middle
+      .cancel
+        float: right
+        background-color: transparent
+        color: $primary_color
+        cursor: pointer
+      span
+        color: $primary_color
+        margin-left: 8px
+        vertical-align: middle
+      &.warning
+        i
+          color: $secondary_color
+        span
+          color: $secondary_color
+
+    .content
+      padding: 8px 0px 8px 0px
+
+@keyframes notify
+  0%
+    opacity: 0
+  10%
+    opacity: 1
+  90%
+    opacity: 1
+  100%
+    opacity: 0
+    display: none
+
+#problem-uploading-form
+  max-width: 680px
+
+
+
+.ckeditor-container
+  .title
+    font-size: 24px
+    line-height: 34px
+    text-align: center
+    margin: 0px 0px 16px 0px
+  li
+    line-height: 28px
+    margin: 8px 0px 8px 0px
+  p
+    font-size: 16px
+    line-height: 28px
+    margin: 8px 0px 8px 0px
+  .heading
+    margin: $size_5 0px $size_5 0px
+    display: inline-block
+    width: 96px
+    text-align: center
+    line-height: $size_2
+    font-size: 14px
+    font-family: $font_family_title
+    text-transform: uppercase
+    background-color: $primary_color
+    color: $text_on_p
+  .heading-2
+    //font-size: larger
+    margin: $size_5 0px $size_5 0px
+    text-decoration: underline
+    font-family: "Roboto Mono", monospace
+  table,td
+    border: 1px solid rgba(0,0,0,0.24)
+  table
+    margin: 8px 0px
+    width: 100% !important
+    border-collapse: collapse
+    *
+      font-family: $font_family_header
+    td
+      padding: 0px 8px 0px 8px
+      line-height: 28px
+
+    tr
+      &:nth-child(odd)
+        background-color: #F5F5F5
+
+
+
+
+
+.hidden-s
+  @media screen and (max-width: $medium_break_point)
+    display: none
+.
+.grid-container
+  display: grid
+  grid-template-columns: repeat(12,1fr)
+  grid-template-rows: auto
+  grid-column-gap: $size_4
+  grid-row-gap: $size_4
+  &.no-row-gap
+    grid-row-gap: 0px
+  align-items: start
+  &>.panel
+    margin: 0px
+  .col-s-1
+    grid-column-end: span 1
+  .col-s-2
+    grid-column-end: span 2
+  .col-s-3
+    grid-column-end: span 3
+  .col-s-4
+    grid-column-end: span 4
+  .col-s-5
+    grid-column-end: span 5
+  .col-s-6
+    grid-column-end: span 6
+  .col-s-7
+    grid-column-end: span 7
+  .col-s-8
+    grid-column-end: span 8
+  .col-s-9
+    grid-column-end: span 9
+  .col-s-10
+    grid-column-end: span 10
+  .col-s-11
+    grid-column-end: span 11
+  .col-s-12
+    grid-column-end: span 12
+
+@media screen and (min-width: $medium_break_point)
+  .grid-container
+    grid-column-gap: $size_2
+    grid-row-gap: $size_2
+    &>.panel
+      margin: 0px
+    .col-off-set-3
+      grid-column-start: 3
+    .col-m-1
+      grid-column-end: span 1
+    .col-m-2
+      grid-column-end: span 2
+    .col-m-3
+      grid-column-end: span 3
+    .col-m-4
+      grid-column-end: span 4
+    .col-m-5
+      grid-column-end: span 5
+    .col-m-6
+      grid-column-end: span 6
+    .col-m-7
+      grid-column-end: span 7
+    .col-m-8
+      grid-column-end: span 8
+    .col-m-9
+      grid-column-end: span 9
+    .col-m-10
+      grid-column-end: span 10
+    .col-m-11
+      grid-column-end: span 11
+    .col-m-12
+      grid-column-end: span 12
+  .col-md-1
+    width: 8.33%
+  .col-md-2
+    width: 16.66%
+  .col-md-3
+    width: 25%
+  .col-md-4
+    width: 33.33%
+  .col-md-5
+    width: 41.66%
+  .col-md-6
+    width: 50%
+  .col-md-7
+    width: 58.33%
+  .col-md-8
+    width: 66.66%
+  .col-md-9
+    width: 75%
+  .col-md-10
+    width: 83.33%
+  .col-md-11
+    width: 91.66%
+  .col-md-12
+    width: 100%
+
+
+
+.input-unit
+  position: relative
+  input
+    padding-right: 100px
+  span
+    @extend .secondary_text
+    position: absolute
+    top: 8px
+    right: 0px
+
+.grid-center
+  display: flex
+  align-content: flex-start
+  justify-content: center
+  flex-wrap: wrap
+
+.result-cell
+  span
+    vertical-align: middle
+    &.accepted
+      color: $primary_color
+    &.error
+      color: $secondary_color
+    &.processing
+      color: $disable_text_color
+      &::after
+        content: " "
+        vertical-align: middle
+        margin-left: 4px
+        display: inline-block
+        border: 4px solid $back_color_1
+        border-top: 4px solid $primary_color
+        width: 16px
+        height: 16px
+        border-radius: 50%
+        animation: spin 2s ease-in-out infinite
+        transform: rotate(360deg)
+
+
+.loader
+  vertical-align: middle
+  margin-left: 4px
+  display: inline-block
+  border: 4px solid $back_color_1
+  border-top: 4px solid $primary_color
+  width: 20px
+  height: 20px
+  border-radius: 50%
+  animation: spin 2s ease-in-out infinite
+  transform: rotate(360deg)
+
+@keyframes spin
+  0%
+    transform: rotate(0deg)
+  100%
+    trasnform: rotate(360deg)
+
+.tab-bar
+  list-style-type: none
+  padding: 0px $size_2 0px $size_2
+  border-bottom: 1px solid $divider_color
+  li
+    display: inline-block
+    a
+      display: block
+      font-family: $font-family_title
+      font-size: 14px
+      line-height: 24px
+      vertical-align: baseline
+      text-transform: uppercase
+      padding: 12px 16px 12px 16px
+      color: $secondary_text_color
+      &:hover
+        color: $primary_text_color
+      &.active
+        border-bottom: 2px solid $primary_color
+        color: $primary_color
+      .material-icons
+        vertical-align: top
+
+a.link-condensed
+  display: block
+  font-family: $font-family_title
+  font-size: 14px
+  line-height: 24px
+  vertical-align: baseline
+  text-transform: uppercase
+  padding: 12px 16px 12px 16px
+
+.user-avatar
+  border-radius: 4px
+  width: 100%
+  max-width: 128px
+
+.flex-container
+  display: flex
+  flex-wrap: nowrap
+
+
+.display-3
+  font-size: 48px
+.display-1
+  font-size: 24px
+.sub-heading
+  font-size: 20px
+.head-line
+  font-size: 20px
+
+.error-style
+  .body-container
+    padding-top: 16px !important
+    padding-bottom: 16px !important
+  i
+    vertical-align: middle
+    color: $error_color
+    margin-right: 8px
+  span
+    vertical-align: middle
+    color: $error_color
+    line-height: 24px
+
+.success-style
+  .body-container
+    padding-top: 16px !important
+    padding-bottom: 16px !important
+  i
+    vertical-align: middle
+    color: $primary_color
+    margin-right: 8px
+  span
+    vertical-align: middle
+    color: $primary_color
+    line-height: 24px
+
+p
+  margin: 8px 0px 8px 0px
+
+
+input[type="checkbox"]
+  width: 18px
+  height: 18px
+  vertical-align: top
+
+
+
+select
+  padding: 0px 4px 0px 4px
+  font: 14px 'Roboto Mono', monospace
+  border-radius: 4px
+  background-color: $divider_color
+  color: $primary_text_color
+  transition: 200ms
+

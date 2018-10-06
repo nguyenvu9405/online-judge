@@ -1,0 +1,7 @@
+Free Pascal Compiler version 3.0.0+dfsg-2 [2016/01/28] for x86_64
+Copyright (c) 1993-2015 by Florian Klaempfl and others
+Target OS: Linux for x86-64
+Compiling submission.cpp
+Linking sub.exe
+/usr/bin/ld.bfd: warning: link.res contains output sections; did you forget -T?
+119 lines compiled, 0.2 sec

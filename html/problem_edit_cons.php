@@ -1,0 +1,172 @@
+<?php
+include "core/init.php";
+include "head.php";
+$prob_setting_tab_info = array("name"=>"cons");
+if (InputGet::existField("prob_id"))
+{
+    $prob = Problem::selectProblem("problems.id=?",array(InputGet::get("prob_id")));
+    if (empty($prob))
+    {
+        Redirect::to404();
+    }
+}
+else
+{
+    Redirect::to("/index.php");
+}
+
+if (empty($cuser))
+{
+    Session::setFlash("Problem Settings","You need to log in first before modifying the problem",1);
+    Redirect::to("index.php");
+    die();
+}
+
+if (!$cuser->canEditProblem($prob))
+{
+    Session::setFlash("Problem Settings","You don't have the permission to modify the problem",1);
+    Redirect::to("index.php");
+    die();
+}
+
+$rule = array(
+    "timelimit"=>Validation::$ProblemProperties["timelimit"],
+    "memorylimit"=>Validation::$ProblemProperties["memorylimit"]
+);
+
+if (InputPost::exist())
+{
+    $problem_data = array(
+        "timelimit"=>InputPost::get("timelimit"),
+        "memorylimit"=>InputPost::get("memorylimit")
+    );
+    $validate = new Validation($rule);
+    if ($validate->judge($problem_data))
+    {
+        if ($prob->updateDB($problem_data))
+        {
+            $prob->update($problem_data);
+            Session::flashPanel(array(1,"Updating the problem successfully!"));
+        }
+        else
+        {
+            Session::flashErrorMsg(ErrorMessages::getDBMsg());
+            Redirect::to("/error_page");
+        }
+    }
+    else
+    {
+        Session::flashPanel(array(0,ErrorMessages::getFormError()));
+        $errs = $validate->getErrors();
+    }
+}
+
+?>
+
+<body>
+<?php
+include "header.php";
+?>
+<div class="content">
+    <div class="grid-container">
+        <div class="col-s-12 col-m-9" id="main-col">
+            <div class="card panel">
+                <div class="header-container space-around darker">
+                    <div class="title">
+                        <span>Setting constraints</span>
+                    </div>
+                </div>
+                <div class="body-container">
+                    <form method="post" action="" id="problem_cons_edit_form">
+                        <div class="grid-container no-row-gap">
+                            <div class="input-field col-s-12 col-m-6">
+                                <div class="label">
+                                    <label for="code">Time limit *</label>
+                                </div>
+                                <div class="input-unit">
+                                    <input id="timelimit" name="timelimit" type="number" spellcheck="false" value="<?php
+                                        if (InputPost::exist())
+                                        {
+                                            echo InputPost::get("timelimit");
+                                        }
+                                        else
+                                        {
+                                            echo $prob->getTimeLimit();
+                                        }
+                                    ?>">
+                                    <span>seconds</span>
+                                </div>
+                                <?php
+                                    if ($errs && $errs["timelimit"])
+                                    {
+                                        echo "<span class='helper-text error'>{$errs["timelimit"]}</span>";
+                                    }
+                                    else
+                                    {
+                                        echo "         
+                                                           
+                                                <span class=\"helper-text hint\">                                            
+                                                    {$rule["timelimit"]["guide"]}
+                                                </span>
+                                            ";
+                                    }
+                                ?>
+                            </div>
+                            <!--                            //1048576-->
+                            <div class="input-field col-s-12 col-m-6">
+                                <div class="label">
+                                    <label for="code">Memory limit*</label>
+                                </div>
+                                <div class="input-unit">
+                                    <input id="memorylimit" name="memorylimit" type="number" spellcheck="false" value="<?php
+                                        if (InputPost::exist())
+                                        {
+                                            echo InputPost::get("memorylimit");
+                                        }
+                                        else
+                                        {
+                                            echo $prob->getMemoryLimit();
+                                        }
+                                    ?>">
+                                    <span>mb</span>
+                                </div>
+                                <?php
+                                if ($errs && $errs["memorylimit"])
+                                {
+                                    echo "<span class='helper-text error'>{$errs["memorylimit"]}</span>";
+                                }
+                                else
+                                {
+                                    echo "         
+                                                       
+                                            <span class=\"helper-text hint\">                                            
+                                                {$rule["memorylimit"]["guide"]}
+                                            </span>
+                                        ";
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="footer-container">
+                    <input type="submit" value="save" class="raise-button" form="problem_cons_edit_form">
+                </div>
+            </div>
+        </div>
+        <div class="col-s-12 col-m-3">
+            <?php
+            include_once "problem_settings_panel.php";
+            include_once "problem_info_panel.php";
+
+
+            ?>
+        </div>
+
+    </div>
+</div>
+<?php
+include "footer.php";
+?>
+
+</body>

@@ -1,0 +1,396 @@
+submission.cpp:2:14: error: empty character constant
+ const   fv = '';
+              ^
+submission.cpp:3:14: error: empty character constant
+         fr = '';
+              ^
+submission.cpp:5:17: error: too many decimal points in number
+         a:array[0..33]of longint;
+                 ^
+submission.cpp:6:17: error: too many decimal points in number
+         w:array[0..65666]of int64;
+                 ^
+submission.cpp:7:17: error: too many decimal points in number
+         d:array[0..65666]of word;
+                 ^
+submission.cpp:1:1: error: ‘program’ does not name a type
+ program     phan_tap; //LQDDIV
+ ^
+submission.cpp:2:9: error: ‘fv’ does not name a type
+ const   fv = '';
+         ^
+submission.cpp:3:9: error: ‘fr’ does not name a type
+         fr = '';
+         ^
+submission.cpp:4:1: error: ‘var’ does not name a type
+ var     n,m:byte;   sum,kq1,kq2,div_s:int64;   top,top1:longint;
+ ^
+submission.cpp:4:21: error: ‘sum’ does not name a type
+ var     n,m:byte;   sum,kq1,kq2,div_s:int64;   top,top1:longint;
+                     ^
+submission.cpp:4:48: error: ‘top’ does not name a type
+ var     n,m:byte;   sum,kq1,kq2,div_s:int64;   top,top1:longint;
+                                                ^
+submission.cpp:5:10: error: found ‘:’ in nested-name-specifier, expected ‘::’
+         a:array[0..33]of longint;
+          ^
+submission.cpp:5:9: error: ‘a’ does not name a type
+         a:array[0..33]of longint;
+         ^
+submission.cpp:6:10: error: found ‘:’ in nested-name-specifier, expected ‘::’
+         w:array[0..65666]of int64;
+          ^
+submission.cpp:6:9: error: ‘w’ does not name a type
+         w:array[0..65666]of int64;
+         ^
+submission.cpp:7:10: error: found ‘:’ in nested-name-specifier, expected ‘::’
+         d:array[0..65666]of word;
+          ^
+submission.cpp:7:9: error: ‘d’ does not name a type
+         d:array[0..65666]of word;
+         ^
+submission.cpp:8:1: error: ‘procedure’ does not name a type
+ procedure    read_Data;
+ ^
+submission.cpp:9:3: error: ‘var’ does not name a type
+   var    f:text;   i:byte;
+   ^
+submission.cpp:9:21: error: found ‘:’ in nested-name-specifier, expected ‘::’
+   var    f:text;   i:byte;
+                     ^
+submission.cpp:9:20: error: ‘i’ does not name a type
+   var    f:text;   i:byte;
+                    ^
+submission.cpp:10:3: error: ‘begin’ does not name a type
+   begin
+   ^
+submission.cpp:11:30: error: expected constructor, destructor, or type conversion before ‘(’ token
+           assign(f,fv); reset(f);
+                              ^
+submission.cpp:12:17: error: expected constructor, destructor, or type conversion before ‘(’ token
+           readln(f,n); m:=n div 2; sum:=0;
+                 ^
+submission.cpp:12:24: error: ‘m’ does not name a type
+           readln(f,n); m:=n div 2; sum:=0;
+                        ^
+submission.cpp:12:36: error: ‘sum’ does not name a type
+           readln(f,n); m:=n div 2; sum:=0;
+                                    ^
+submission.cpp:13:11: error: expected unqualified-id before ‘for’
+           for i:=1 to n do
+           ^
+submission.cpp:14:35: error: ‘sum’ does not name a type
+             begin  read(f,a[i]);  sum:=sum+a[i]; end;
+                                   ^
+submission.cpp:14:50: error: ‘end’ does not name a type
+             begin  read(f,a[i]);  sum:=sum+a[i]; end;
+                                                  ^
+submission.cpp:15:11: error: ‘div_s’ does not name a type
+           div_s:= sum div 2;
+           ^
+submission.cpp:16:16: error: expected constructor, destructor, or type conversion before ‘(’ token
+           close(f);
+                ^
+submission.cpp:17:3: error: ‘end’ does not name a type
+   end;
+   ^
+submission.cpp:18:1: error: ‘procedure’ does not name a type
+ procedure   attemp(v:int64; i:byte);
+ ^
+submission.cpp:18:30: error: found ‘:’ in nested-name-specifier, expected ‘::’
+ procedure   attemp(v:int64; i:byte);
+                              ^
+submission.cpp:18:29: error: ‘i’ does not name a type
+ procedure   attemp(v:int64; i:byte);
+                             ^
+submission.cpp:19:3: error: ‘begin’ does not name a type
+   begin
+   ^
+submission.cpp:23:23: error: expected constructor, destructor, or type conversion before ‘(’ token
+                 attemp(v+a[i],i+1);
+                       ^
+submission.cpp:24:13: error: ‘end’ does not name a type
+             end
+             ^
+submission.cpp:27:26: error: ‘w’ does not name a type
+                inc(top); w[top]:=v;
+                          ^
+submission.cpp:28:19: error: expected constructor, destructor, or type conversion before ‘(’ token
+                inc(top); w[top]:=v+a[i];
+                   ^
+submission.cpp:28:26: error: ‘w’ does not name a type
+                inc(top); w[top]:=v+a[i];
+                          ^
+submission.cpp:29:13: error: ‘end’ does not name a type
+             end;
+             ^
+submission.cpp:30:3: error: ‘end’ does not name a type
+   end;
+   ^
+submission.cpp:31:1: error: ‘procedure’ does not name a type
+ procedure    quick_sort(l,r:longint);
+ ^
+submission.cpp:32:3: error: ‘var’ does not name a type
+   var   pivot,tam:int64;   i,j:longint;
+   ^
+submission.cpp:32:28: error: ‘i’ does not name a type
+   var   pivot,tam:int64;   i,j:longint;
+                            ^
+submission.cpp:33:3: error: ‘begin’ does not name a type
+   begin
+   ^
+submission.cpp:35:9: error: ‘pivot’ does not name a type
+         pivot:=w[random(r-l+1)+l];
+         ^
+submission.cpp:36:9: error: ‘i’ does not name a type
+         i:=l; j:=r;
+         ^
+submission.cpp:36:15: error: ‘j’ does not name a type
+         i:=l; j:=r;
+               ^
+submission.cpp:37:9: error: ‘repeat’ does not name a type
+         repeat
+         ^
+submission.cpp:39:13: error: expected unqualified-id before ‘while’
+             while w[j]>pivot do dec(j);
+             ^
+submission.cpp:40:13: error: expected unqualified-id before ‘if’
+             if i<=j then
+             ^
+submission.cpp:43:37: error: ‘w’ does not name a type
+                    begin tam:=w[i]; w[i]:=w[j]; w[j]:=tam; end;
+                                     ^
+submission.cpp:43:49: error: ‘w’ does not name a type
+                    begin tam:=w[i]; w[i]:=w[j]; w[j]:=tam; end;
+                                                 ^
+submission.cpp:43:60: error: ‘end’ does not name a type
+                    begin tam:=w[i]; w[i]:=w[j]; w[j]:=tam; end;
+                                                            ^
+submission.cpp:44:22: error: expected constructor, destructor, or type conversion before ‘(’ token
+                   inc(i); dec(j);
+                      ^
+submission.cpp:44:30: error: expected constructor, destructor, or type conversion before ‘(’ token
+                   inc(i); dec(j);
+                              ^
+submission.cpp:45:15: error: ‘end’ does not name a type
+               end;
+               ^
+submission.cpp:46:9: error: ‘until’ does not name a type
+         until  i>=j;
+         ^
+submission.cpp:47:19: error: expected constructor, destructor, or type conversion before ‘(’ token
+         quick_sort(l,j); quick_sort(i,r);
+                   ^
+submission.cpp:47:36: error: expected constructor, destructor, or type conversion before ‘(’ token
+         quick_sort(l,j); quick_sort(i,r);
+                                    ^
+submission.cpp:48:3: error: ‘end’ does not name a type
+   end;
+   ^
+submission.cpp:49:1: error: ‘procedure’ does not name a type
+ procedure    check(s:int64;turn:longint);
+ ^
+submission.cpp:49:32: error: found ‘:’ in nested-name-specifier, expected ‘::’
+ procedure    check(s:int64;turn:longint);
+                                ^
+submission.cpp:49:28: error: ‘turn’ does not name a type
+ procedure    check(s:int64;turn:longint);
+                            ^
+submission.cpp:50:3: error: ‘begin’ does not name a type
+   begin
+   ^
+submission.cpp:51:56: error: ‘exit’ does not name a type
+          if abs(sum-2*s)=kq1 then begin kq2:=kq2+turn; exit; end;
+                                                        ^
+submission.cpp:51:62: error: ‘end’ does not name a type
+          if abs(sum-2*s)=kq1 then begin kq2:=kq2+turn; exit; end;
+                                                              ^
+submission.cpp:52:10: error: expected unqualified-id before ‘if’
+          if abs(sum-2*s)<kq1 then
+          ^
+submission.cpp:54:41: error: ‘kq2’ does not name a type
+                      kq1:=abs(sum-2*s); kq2:=turn;
+                                         ^
+submission.cpp:55:17: error: ‘end’ does not name a type
+                 end;
+                 ^
+submission.cpp:56:3: error: ‘end’ does not name a type
+   end;
+   ^
+submission.cpp:57:1: error: ‘function’ does not name a type
+ function     find(s:int64):longint;
+ ^
+submission.cpp:58:3: error: ‘var’ does not name a type
+   var      dau,cuoi,mid:longint;
+   ^
+submission.cpp:59:3: error: ‘begin’ does not name a type
+   begin
+   ^
+submission.cpp:60:17: error: ‘cuoi’ does not name a type
+         dau:=0; cuoi:=top1;
+                 ^
+submission.cpp:61:9: error: expected unqualified-id before ‘while’
+         while dau<=cuoi do
+         ^
+submission.cpp:64:15: error: expected unqualified-id before ‘if’
+               if div_s>=w[mid]+s then dau:=mid+1
+               ^
+submission.cpp:66:11: error: ‘end’ does not name a type
+           end;
+           ^
+submission.cpp:67:9: error: ‘find’ does not name a type
+         find:=cuoi;
+         ^
+submission.cpp:68:3: error: ‘end’ does not name a type
+   end;
+   ^
+submission.cpp:69:1: error: ‘procedure’ does not name a type
+ procedure    solve(s:int64);
+ ^
+submission.cpp:70:3: error: ‘var’ does not name a type
+   var     x:longint;
+   ^
+submission.cpp:71:3: error: ‘begin’ does not name a type
+   begin
+   ^
+submission.cpp:73:16: error: expected constructor, destructor, or type conversion before ‘(’ token
+           check(s+w[x],d[x]); check(s+w[x+1],d[x+1]);
+                ^
+submission.cpp:73:36: error: expected constructor, destructor, or type conversion before ‘(’ token
+           check(s+w[x],d[x]); check(s+w[x+1],d[x+1]);
+                                    ^
+submission.cpp:74:3: error: ‘end’ does not name a type
+   end;
+   ^
+submission.cpp:75:1: error: ‘procedure’ does not name a type
+ procedure    attemp_kq(v:int64;i:byte);
+ ^
+submission.cpp:75:33: error: found ‘:’ in nested-name-specifier, expected ‘::’
+ procedure    attemp_kq(v:int64;i:byte);
+                                 ^
+submission.cpp:75:32: error: ‘i’ does not name a type
+ procedure    attemp_kq(v:int64;i:byte);
+                                ^
+submission.cpp:76:3: error: ‘begin’ does not name a type
+   begin
+   ^
+submission.cpp:80:26: error: expected constructor, destructor, or type conversion before ‘(’ token
+                 attemp_kq(v+a[i],i+1);
+                          ^
+submission.cpp:81:13: error: ‘end’ does not name a type
+             end
+             ^
+submission.cpp:85:22: error: expected constructor, destructor, or type conversion before ‘(’ token
+                 solve(v+a[i]);
+                      ^
+submission.cpp:86:13: error: ‘end’ does not name a type
+             end;
+             ^
+submission.cpp:87:3: error: ‘end’ does not name a type
+   end;
+   ^
+submission.cpp:88:1: error: ‘procedure’ does not name a type
+ procedure   process;
+ ^
+submission.cpp:89:3: error: ‘var’ does not name a type
+   var   i:longint;
+   ^
+submission.cpp:90:3: error: ‘begin’ does not name a type
+   begin
+   ^
+submission.cpp:91:19: error: ‘top1’ does not name a type
+         top:=0;   top1:=0;  d[1]:=1;
+                   ^
+submission.cpp:91:29: error: ‘d’ does not name a type
+         top:=0;   top1:=0;  d[1]:=1;
+                             ^
+submission.cpp:92:15: error: expected constructor, destructor, or type conversion before ‘(’ token
+         attemp(0,1);
+               ^
+submission.cpp:93:19: error: expected constructor, destructor, or type conversion before ‘(’ token
+         quick_sort(1,top);
+                   ^
+submission.cpp:94:8: error: expected unqualified-id before ‘for’
+        for i:=1 to top-1 do
+        ^
+submission.cpp:99:29: error: ‘w’ does not name a type
+                  inc(top1); w[top1]:=w[i]; d[top1]:=d[i];
+                             ^
+submission.cpp:99:44: error: ‘d’ does not name a type
+                  inc(top1); w[top1]:=w[i]; d[top1]:=d[i];
+                                            ^
+submission.cpp:100:18: error: ‘d’ does not name a type
+                  d[i+1]:=1;
+                  ^
+submission.cpp:101:15: error: ‘end’ does not name a type
+               end;
+               ^
+submission.cpp:102:11: error: ‘end’ does not name a type
+           end;
+           ^
+submission.cpp:103:9: error: ‘w’ does not name a type
+         w[0]:=-100000000000000; d[0]:=1;
+         ^
+submission.cpp:103:33: error: ‘d’ does not name a type
+         w[0]:=-100000000000000; d[0]:=1;
+                                 ^
+submission.cpp:104:12: error: expected constructor, destructor, or type conversion before ‘(’ token
+         inc(top1); w[top1]:=w[top]; d[top1]:=d[top];
+            ^
+submission.cpp:104:20: error: ‘w’ does not name a type
+         inc(top1); w[top1]:=w[top]; d[top1]:=d[top];
+                    ^
+submission.cpp:104:37: error: ‘d’ does not name a type
+         inc(top1); w[top1]:=w[top]; d[top1]:=d[top];
+                                     ^
+submission.cpp:105:12: error: expected constructor, destructor, or type conversion before ‘(’ token
+         inc(top1); w[top1]:=10000000000000; d[top1]:=1;
+            ^
+submission.cpp:105:20: error: ‘w’ does not name a type
+         inc(top1); w[top1]:=10000000000000; d[top1]:=1;
+                    ^
+submission.cpp:105:45: error: ‘d’ does not name a type
+         inc(top1); w[top1]:=10000000000000; d[top1]:=1;
+                                             ^
+submission.cpp:106:9: error: ‘kq1’ does not name a type
+         kq1:=100000000000000;
+         ^
+submission.cpp:107:18: error: expected constructor, destructor, or type conversion before ‘(’ token
+         attemp_kq(0,m+1);
+                  ^
+submission.cpp:108:3: error: ‘end’ does not name a type
+   end;
+   ^
+submission.cpp:109:1: error: ‘procedure’ does not name a type
+ procedure   write_result;
+ ^
+submission.cpp:110:3: error: ‘var’ does not name a type
+   var     f:text;
+   ^
+submission.cpp:111:3: error: ‘begin’ does not name a type
+   begin
+   ^
+submission.cpp:112:32: error: expected constructor, destructor, or type conversion before ‘(’ token
+           assign(f,fr); rewrite(f);
+                                ^
+submission.cpp:113:18: error: expected constructor, destructor, or type conversion before ‘(’ token
+           writeln(f,kq1,' ',kq2 div 2);
+                  ^
+submission.cpp:114:16: error: expected constructor, destructor, or type conversion before ‘(’ token
+           close(f);
+                ^
+submission.cpp:115:3: error: ‘end’ does not name a type
+   end;
+   ^
+submission.cpp:116:1: error: ‘begin’ does not name a type
+ begin
+ ^
+submission.cpp:118:3: error: ‘process’ does not name a type
+   process;
+   ^
+submission.cpp:119:3: error: ‘write_result’ does not name a type
+   write_result;
+   ^
+submission.cpp:120:1: error: ‘end’ does not name a type
+ end.
+ ^

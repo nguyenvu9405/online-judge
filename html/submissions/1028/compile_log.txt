@@ -1,0 +1,3 @@
+submission.cpp:4:8: error: ISO C++ forbids declaration of ‘output’ with no type [-fpermissive]
+ output()
+        ^

@@ -1,0 +1,8 @@
+submission.cpp:24:56: error: ‘Min’ function uses ‘auto’ type specifier without trailing return type
+ template <typename T1, typename T2> auto Min(T1 a, T2 b) { return (a<b)?a:b; }
+                                                        ^
+submission.cpp:24:56: note: deduced return type only available with -std=c++14 or -std=gnu++14
+submission.cpp:25:56: error: ‘Max’ function uses ‘auto’ type specifier without trailing return type
+ template <typename T1, typename T2> auto Max(T1 a, T2 b) { return (a>b)?a:b; }
+                                                        ^
+submission.cpp:25:56: note: deduced return type only available with -std=c++14 or -std=gnu++14
