@@ -42,22 +42,19 @@ include "header.php";
                 <div class="table-container">
                     <table>
                         <tr>
-                            <th class="label-normal center-col col-2 hidden-s">
+                            <th class="label-normal center-col s-hidden-col" style="width: 64px">
                                 <label>Date</label>
                             </th>
-                            <th class="label-normal center-col col-3 col-md-2">
+                            <th class="label-normal center-col" style="width: 96px">
                                 <label>Code</label>
                             </th>
-                            <th class="label-normal center-col">
+                            <th class="label-normal center-col no-break" style="width: 128px">
                                 <label>Title</label>
                             </th>
-<!--                            <th class="label-normal center-col hidden-s">-->
-<!--                                <label>Solvers</label>-->
-<!--                            </th>-->
                             <?php
                                 if ($cuser)
                                 {
-                                    echo "<th class='label-normal icon-col col-3 col-md-2'>
+                                    echo "<th class='label-normal icon-col' style='width: 64px'>
                                             <label>Status</label>
                                         </th>";
                                 }
@@ -74,17 +71,15 @@ include "header.php";
                                 $date = new DateTime($prob["date"]);
                                 echo "<tr>";
 
-                                echo "  <td class='number-col hidden-s'>
+                                echo "<td class='number-col s-hidden-col'>
                                         {$date->format('M d, Y')}
-                                        </td>
-                                        <td class='center-col'><a class='link' href='problems/$code'>$code</a></td>
-                                        <td class='center-col'><a class='link' href='problems/$code'>$title</a></td>
-                                                                                                                    
-                                ";
-                                //<td class='number-col hidden-s'>20</td>
+                                      </td>
+                                      <td class='center-col'><a class='link' href='problems/$code'>$code</a></td>
+                                      <td class='center-col no-break'><a class='link' href='problems/$code'>$title</a></td> ";
                                 if ($cuser)
                                 {
-                                    if ($prob["status"]==200) echo "<td class='icon-col'><i class='material-icons success'>check_box</i></td>";
+                                    if ($prob["status"]==200) 
+                                        echo "<td class='icon-col'><i class='material-icons success'>check_box</i></td>";
                                     else echo "<td class='icon-col'><i class='material-icons'>check_box_outline_blank</i></td>";
                                 }
                                 echo "</tr>";

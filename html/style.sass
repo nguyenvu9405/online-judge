@@ -1,3 +1,4 @@
+
 $back_color_1: #E0E0E0
 $back_color_2: #F5F5F5
 $back_color_3: #FAFAFA
@@ -541,6 +542,8 @@ li.ver-list-item
           padding: 8px 24px 8px $size_5
       &.no-padding
         padding: 0px
+      &.no-break
+        word-break: normal
     .icon-col
       padding: 0px !important
       text-align: center
@@ -567,17 +570,23 @@ li.ver-list-item
   .lang-col
     display: none
   @media screen and (min-width: $small_break_point)
-    .time-col
+    .id-col
+      width: 32px
+    .user-col
+      width: 64px
+    .problem-col
       width: 40px
+    .result-col
+      width: 80px
+    .time-col
+      width: 24px
       display: table-cell
     .mem-col
-      width: 40px
+      width: 24px
       display: table-cell
     .lang-col
-      width: 40px
+      width: 32px
       display: table-cell
-
-
 
 .col-1
   width: 8.33%
@@ -988,13 +997,6 @@ $error_color: #ef5350
         background-color: #F5F5F5
 
 
-
-
-
-.hidden-s
-  @media screen and (max-width: $medium_break_point)
-    display: none
-.
 .grid-container
   display: grid
   grid-template-columns: repeat(12,1fr)
@@ -1105,6 +1107,23 @@ $error_color: #ef5350
   align-content: flex-start
   justify-content: center
   flex-wrap: wrap
+
+.mobile-txt
+  color: inherit
+  @media screen and (min-width: $small_break_point)
+    display: none
+
+.desktop-txt
+  color: inherit
+  display: none
+  @media screen and (min-width: $small_break_point)
+    display: inline-block
+    
+.s-hidden-col
+  display: none
+  @media screen and (min-width: $small_break_point)
+    display: table-cell
+
 
 .result-cell
   span

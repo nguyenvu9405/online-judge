@@ -23,7 +23,11 @@ if ($ids)
         global $db, $ps, $ids;
         if ($db->queryPS($ps,$ids))
         {
-            return $db->getResults();
+            $data = $db->getResults();
+            $cnt = count($data);
+            for ($i=0; $i<$cnt; $i++)
+            $data[$i]["msg"] = Submission::getStatusMsg($data[$i]["status"],$data[$i]["test_num"],$data[$i]["errors"]);
+            return $data;
         }
         else return false;
     }

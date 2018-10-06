@@ -43,24 +43,23 @@ $running_ids = array();
                         if ($csub!==false && $csub==$sub->getId())
                             echo "<tr class='active'>";
                         else echo "<tr>";
+                        
                         if ($cuser && $cuser->canView($sub))
                         {
                             echo "<td class='center-col id-col'><a class='link sub-link' sub-id='{$sub->getId()}'>{$sub->getId()}</a></td>";
                         }
-                        else echo "<td class='center-col id-col'>{$sub->getId()}</td>";
-                        echo "
-                                <td class='center-col user-col'><a class='link' href='/user_profile?user={$sub->getSubmitter()->getUsername()}'>{$sub->getSubmitter()->getUsername()}</a></td>
-                                <td class='center-col problem-col'><a class='link' href='/problems/{$sub->getProblem()->getCode()}'>{$sub->getProblem()->getCode()}</a></td>
+                        else 
+                            echo "<td class='center-col id-col'>{$sub->getId()}</td>";
+                        echo "<td class='center-col user-col'><a class='link' href='/user_profile?user={$sub->getSubmitter()->getUsername()}'>{$sub->getSubmitter()->getUsername()}</a></td>
+                              <td class='center-col problem-col'><a class='link' href='/problems/{$sub->getProblem()->getCode()}'>{$sub->getProblem()->getCode()}</a></td>
                             ";
 
                         if ($sub->getStatus()<100)
                         {
                             array_push($running_ids,$sub->getId());
-                            echo "
-                                    <td class='center-col result-col result-cell '>
+                            echo "<td class='center-col result-col result-cell '>
                                        {$sub->getStatusContent()}
-                                    </td>
-                                ";
+                                  </td>";
                             echo "<td class='center-col time-col' id=\"time_{$sub->getId()}\">{$sub->getTimeInSecs()} s</td>
                                   <td class='center-col mem-col' id=\"mem_{$sub->getId()}\">{$sub->getMemInMb()} mb</td>
                             ";
@@ -68,7 +67,7 @@ $running_ids = array();
                         else
                         {
                             echo "<td class='center-col result-col result-cell'>
-                                   <span class='error'>WA (5)</span>
+                                   <span class='error'>{$sub->getStatusContent()}</span>
                                   </td>
                                 ";
                             echo "<td class='center-col time-col'>{$sub->getTimeInSecs()} s</td><td class='center-col mem-col'>{$sub->getMemInMb()} mb</td>";
@@ -100,10 +99,10 @@ if ($running_ids)
         var sse = new EventSource("status_update_stream.php?<?php echo $str;?>");
         sse.addEventListener("end",function () {
             sse.close();
-        });
-        
+        });               
+    
         sse.addEventListener("update",function(e){
-            console.log(e.data);
+            //console.log(e.data);
             var data = JSON.parse(e.data);
             for (i=0; i<data.length; i++)
             {
@@ -111,26 +110,18 @@ if ($running_ids)
                 var resultCell = document.getElementById("result_"+row["id"]);
                 if (resultCell.getAttribute("status")==row["status"] && resultCell.getAttribute("test_num"==row["test_num"]))
                     continue;
-                var status = row["status"];
-                if (status=="0")
+                var status = parseInt(row["status"],10);
+                if (status<100)
                 {
-                    resultCell.innerHTML = "Submitting...";
+                    resultCell.innerHTML = row["msg"];
                 }
-                else if (status=="1")
+                else if (status<200)
                 {
-                    resultCell.innerHTML = "Compiling...";
-                }
-                else if (status=="2")
-                {
-                    resultCell.innerHTML = "Running on test "+row["test_num"];
-                }
-                else if (status>99 && status<200)
-                {
-                    resultCell.innerText = row["errors"];
+                    resultCell.innerHTML = row["msg"];   
                     resultCell.className = "error";
                 }
                 else if (status==200){
-                    resultCell.innerHTML = "Accepted";
+                    resultCell.innerHTML = row["msg"];
                     resultCell.className = "accepted";
                     var timeCell = document.getElementById("time_"+row["id"]);
                     var memCell = document.getElementById("mem_"+row["id"]);

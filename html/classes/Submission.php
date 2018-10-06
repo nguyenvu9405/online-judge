@@ -308,29 +308,91 @@ class Submission
         }
         else return false;
     }
+    
+    public static function getStatusMsg($status, $test_num, $error)
+    {
+        $long_msg="";
+        $short_msg="";  
+        if ($status<100)
+        {
+            switch ($status)
+            {
+                case 0:
+                    $long_msg="Submiting";
+                    $short_msg="";
+                    break;
+                case 1:
+                    $long_msg="Compilling";
+                    $short_msg="";
+                    break;
+                case 2:
+                    $long_msg="Running on test $test_num";
+                    $short_msg=$test_num;
+                    break;  
+            }
+        }
+        else if ($status<200)
+        {
+            switch ($status)
+            {
+                case 100:
+                    $long_msg="Compile Error";
+                    $short_msg="CE";
+                    break; 
+                case 101:
+                    $long_msg="Time limit exceeded on test $test_num";
+                    $short_msg="TLE-$test_num";
+                    break;
+                case 102:
+                    $long_msg="Mem limit exceeded on test $test_num";
+                    $short_msg="MLE-$test_num";
+                    break;
+                case 103:
+                    $long_msg="Output limit exceeded on test $test_num";
+                    $short_msg="OLE-$test_num";
+                    break;
+                case 197:
+                    $long_msg="System error";
+                    $short_msg="SysError";
+                    break;
+                case 198:
+                    $long_msg="$error";
+                    $short_msg="Error";
+                    break;
+                case 199:
+                    $long_msg="Wrong answer on test $test_num";
+                    $short_msg="WA-$test_num"; 
+                    break;
+
+            }
+        }
+        else if ($status==200)
+        {
+            $long_msg="Accepted";
+            $short_msg="AC";
+        }
+        return "<span class='desktop-txt'>{$long_msg}</span>
+                <span class='mobile-txt'>{$short_msg}</span>";
+    }
 
     public function getStatusContent()
     {
         $status = $this->getStatus();
-        if ($status==0)
+        $test_num = $this->getTestNum();
+        $error = $this->getError();
+        $msg = self::getStatusMsg($status, $test_num, $error);
+        
+        if ($status<100)
         {
-            return "<span class='processing' id='result_{$this->getId()}'>Submitting...</span>";
-        }
-        else if ($status==1)
+            return "<span class='processing' id='result_{$this->getId()}'>$msg</span>";
+        }        
+        else if ($status<200)
         {
-            return "<span class='processing' id='result_{$this->getId()}'>Compiling...</span>";
-        }
-        else if ($status==2)
-        {
-            return "<span class='processing' id='result_{$this->getId()}'>Running on test {$this->getTestNum()} </span>";
-        }
-        else if ($status>99 && $status<200)
-        {
-            return "<span class='error'>{$this->getError()}</span>";
+            return "<span class='error'>$msg</span>";
         }
         else if ($status==200)
         {
-            return "<span class='accepted'>Accepted</span>";
+            return "<span class='accepted'>$msg</span>";
         }
     }
 
