@@ -51,7 +51,7 @@ class User
 
     public function getLatestLangId()
     {
-        return $this->user_data["lang_id"];
+        return $this->user_data["latest_lang_id"];
     }
 
     public static function getUserByUsername($username)
@@ -198,8 +198,8 @@ class User
     public function getUser($conds,$params)
     {
         $db = DB::getInstance();
-        if ($db->query("SELECT * 
-                            FROM users 
+        if ($db->query("SELECT *
+                            FROM users
                             WHERE $conds LIMIT 1",
             $params))
         {

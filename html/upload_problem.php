@@ -99,9 +99,9 @@ include "header.php";
                                     }
                                     else
                                     {
-                                        echo "         
-                                                           
-                                                <span class=\"helper-text hint\">                                            
+                                        echo "
+
+                                                <span class=\"helper-text hint\">
                                                     {$rule["title"]["regex"]["guide"]}
                                                 </span>
                                             ";
@@ -121,9 +121,9 @@ include "header.php";
                                     }
                                     else
                                     {
-                                        echo "         
-                                                       
-                                            <span class=\"helper-text hint\">                                            
+                                        echo "
+
+                                            <span class=\"helper-text hint\">
                                                 {$rule["code"]["regex"]["guide"]}
                                             </span>
                                         ";
@@ -145,9 +145,9 @@ include "header.php";
                                     }
                                     else
                                     {
-                                        echo "         
-                                                       
-                                            <span class=\"helper-text hint\">                                            
+                                        echo "
+
+                                            <span class=\"helper-text hint\">
                                                 {$rule["definition"]["regex"]["guide"]}
                                             </span>
                                         ";
@@ -175,9 +175,9 @@ include "header.php";
                                     }
                                     else
                                     {
-                                        echo "         
-                                                       
-                                            <span class=\"helper-text hint\">                                            
+                                        echo "
+
+                                            <span class=\"helper-text hint\">
                                                 {$rule_file["guide"]}
                                             </span>
                                         ";
@@ -196,9 +196,8 @@ include "header.php";
                                     }
                                     else
                                     {
-                                        echo "         
-                                                       
-                                            <span class=\"helper-text hint\">                                            
+                                        echo "
+                                            <span class=\"helper-text hint\">
                                                 {$rule["input_name"]["regex"]["guide"]}
                                             </span>
                                         ";
@@ -217,9 +216,9 @@ include "header.php";
                                     }
                                     else
                                     {
-                                        echo "         
-                                                       
-                                            <span class=\"helper-text hint\">                                            
+                                        echo "
+
+                                            <span class=\"helper-text hint\">
                                                 {$rule["output_name"]["regex"]["guide"]}
                                             </span>
                                         ";
@@ -248,9 +247,9 @@ include "header.php";
                                     }
                                     else
                                     {
-                                        echo "         
-                                                       
-                                            <span class=\"helper-text hint\">                                            
+                                        echo "
+
+                                            <span class=\"helper-text hint\">
                                                 {$rule["timelimit"]["guide"]}
                                             </span>
                                         ";
@@ -273,9 +272,9 @@ include "header.php";
                                     }
                                     else
                                     {
-                                        echo "         
-                                                       
-                                            <span class=\"helper-text hint\">                                            
+                                        echo "
+
+                                            <span class=\"helper-text hint\">
                                                 {$rule["memorylimit"]["guide"]}
                                             </span>
                                         ";
@@ -307,9 +306,9 @@ include "header.php";
                                     }
                                     else
                                     {
-                                        echo "         
-                                                       
-                                            <span class=\"helper-text hint\">                                            
+                                        echo "
+
+                                            <span class=\"helper-text hint\">
                                                 {$rule_tags["tags"]["guide"]}
                                             </span>
                                         ";

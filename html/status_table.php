@@ -43,12 +43,12 @@ $running_ids = array();
                         if ($csub!==false && $csub==$sub->getId())
                             echo "<tr class='active'>";
                         else echo "<tr>";
-                        
+
                         if ($cuser && $cuser->canView($sub))
                         {
                             echo "<td class='center-col id-col'><a class='link sub-link' sub-id='{$sub->getId()}'>{$sub->getId()}</a></td>";
                         }
-                        else 
+                        else
                             echo "<td class='center-col id-col'>{$sub->getId()}</td>";
                         echo "<td class='center-col user-col'><a class='link' href='/user_profile?user={$sub->getSubmitter()->getUsername()}'>{$sub->getSubmitter()->getUsername()}</a></td>
                               <td class='center-col problem-col'><a class='link' href='/problems/{$sub->getProblem()->getCode()}'>{$sub->getProblem()->getCode()}</a></td>
@@ -99,8 +99,8 @@ if ($running_ids)
         var sse = new EventSource("status_update_stream.php?<?php echo $str;?>");
         sse.addEventListener("end",function () {
             sse.close();
-        });               
-    
+        });
+
         sse.addEventListener("update",function(e){
             //console.log(e.data);
             var data = JSON.parse(e.data);
@@ -117,7 +117,7 @@ if ($running_ids)
                 }
                 else if (status<200)
                 {
-                    resultCell.innerHTML = row["msg"];   
+                    resultCell.innerHTML = row["msg"];
                     resultCell.className = "error";
                 }
                 else if (status==200){

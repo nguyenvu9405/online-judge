@@ -7,7 +7,7 @@
             <?php
                 if ($cuser){
                     ?>
-                    <select class="item" name="lang_id" form="problem-submit-form-2">
+                    <select class="item lang" name="lang_id" form="problem-submit-form-2">
                         <?php
                         echo Lang::getLangsOptions($cuser->getLatestLangId());
                         ?>

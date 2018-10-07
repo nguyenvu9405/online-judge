@@ -223,30 +223,55 @@ class Submission
         }
     }
 
-    public static function getSubmissionsNumber($vars=array())
+    public static function getConditionString($vars,$filter_vars)
+    {
+        global $compare_array;
+        foreach ($vars as $key=>$value)
+        if (!empty($value))
+        {
+            $conds[] = "$key=?";
+            $pars[] = $value;
+        }
+        foreach ($filter_vars as $key => $value)
+        if (!empty($value))
+        {
+            if (!is_array($value))
+            {
+                $conds[] = "$key=?";
+                $pars[] = $value;
+            }
+            else
+            {
+                if (!empty($value["value"]) && !empty($value["compare"]))
+                {
+                    $operation = $compare_array[$value["compare"]];
+                    $conds[] = "$key$operation?";
+                    $pars[] = $value["value"];
+                }
+            }
+        }
+        $str_conds="";
+        if (!empty($conds))
+        {
+            $str_conds = "WHERE ".implode(" AND ", $conds);
+        }
+        return array(
+            "str"=>$str_conds,
+            "pars"=>$pars
+        );
+    }
+
+    public static function getSubmissionsNumber($vars=array(), $filter_vars=array())
     {
         $db = DB::getInstance();
-        $conds="";
-        $pars = array();
-        if (!empty($vars["user"]))
-        {
-            $str="users.username=?"; $pars[]=$vars['user'];
-            $conds="WHERE $str";
-        }
-        if (!empty($vars["code"]))
-        {
-            $str="problems.code=?"; $pars[]=$vars['code'];
-            if (!empty($conds)) $conds.=" AND $str";
-            else $conds="WHERE $str";
-        }
-
+        $conds = self::getConditionString($vars, $filter_vars);
         if ($db->query(
             "SELECT count(subs.id) as num
-                 FROM subs 
-                 LEFT JOIN problems ON subs.problem_id=problems.id 
+                 FROM subs
+                 LEFT JOIN problems ON subs.problem_id=problems.id
                  LEFT JOIN users ON subs.user_id=users.id
-                 $conds",
-            $pars
+                 {$conds["str"]}",
+            $conds["pars"]
         ))
         {
             return $db->getFirstItem()["num"];
@@ -258,11 +283,11 @@ class Submission
     {
         $db = DB::getInstance();
         $pars = array($id);
-        if ($db->query("SELECT subs.id, subs.user_id, subs.status, subs.test_num, subs.errors, subs.time, subs.mem, users.name, users.username, problems.code, problems.uploader_id, problems.title, langs.name as lang_name                         
+        if ($db->query("SELECT subs.id, subs.user_id, subs.status, subs.test_num, subs.errors, subs.time, subs.mem, users.name, users.username, problems.code, problems.uploader_id, problems.title, langs.name as lang_name
                             FROM subs
-                            LEFT JOIN problems ON subs.problem_id=problems.id 
-                            LEFT JOIN users ON subs.user_id=users.id 
-                            LEFT JOIN langs ON subs.lang_id=langs.id 
+                            LEFT JOIN problems ON subs.problem_id=problems.id
+                            LEFT JOIN users ON subs.user_id=users.id
+                            LEFT JOIN langs ON subs.lang_id=langs.id
                             WHERE subs.id=? LIMIT 1", $pars))
         {
             $res = $db->getFirstItem();
@@ -275,44 +300,32 @@ class Submission
             return false;
     }
 
-    public static function selectSubmission($num,$offset,$vars=array())
+    public static function selectSubmission($num,$offset,$vars=array(),$filter_vars=array())
     {
-
         $db = DB::getInstance();
         $num=intval($num);
         $offset = max(intval($offset),0);
-        $conds = ""; $pars=array();
-        if (!empty($vars["user"]))
-        {
-            $str="users.username=?"; $pars[]=$vars['user'];
-            $conds="WHERE $str";
-        }
-        if (!empty($vars["code"]))
-        {
-            $str="problems.code=?"; $pars[]=$vars['code'];
-            if ($conds) $conds.=" AND $str";
-            else $conds="WHERE $str";
-        }
-
+        $conds = self::getConditionString($vars, $filter_vars);
+        //var_dump($conds);
         if ($db->query(
-            "SELECT subs.id, subs.user_id, subs.status, subs.test_num, subs.errors, subs.time, subs.mem, users.name, users.username, problems.code, problems.uploader_id, problems.title, langs.name as lang_name                         
+            "    SELECT subs.id, subs.user_id, subs.status, subs.test_num, subs.errors, subs.time, subs.mem, users.name, users.username, problems.code, problems.uploader_id, problems.title, langs.name as lang_name
                  FROM subs
-                 LEFT JOIN problems ON subs.problem_id=problems.id 
-                 LEFT JOIN users ON subs.user_id=users.id 
-                 LEFT JOIN langs ON subs.lang_id=langs.id 
-                 $conds ORDER BY subs.id DESC LIMIT $num OFFSET $offset",
-                 $pars
+                 LEFT JOIN problems ON subs.problem_id=problems.id
+                 LEFT JOIN users ON subs.user_id=users.id
+                 LEFT JOIN langs ON subs.lang_id=langs.id
+                 {$conds["str"]} ORDER BY subs.id DESC LIMIT $num OFFSET $offset",
+                 $conds["pars"]
         ))
         {
             return $db->getResults();
         }
         else return false;
     }
-    
+
     public static function getStatusMsg($status, $test_num, $error)
     {
         $long_msg="";
-        $short_msg="";  
+        $short_msg="";
         if ($status<100)
         {
             switch ($status)
@@ -328,7 +341,7 @@ class Submission
                 case 2:
                     $long_msg="Running on test $test_num";
                     $short_msg=$test_num;
-                    break;  
+                    break;
             }
         }
         else if ($status<200)
@@ -338,7 +351,7 @@ class Submission
                 case 100:
                     $long_msg="Compile Error";
                     $short_msg="CE";
-                    break; 
+                    break;
                 case 101:
                     $long_msg="Time limit exceeded on test $test_num";
                     $short_msg="TLE-$test_num";
@@ -361,7 +374,7 @@ class Submission
                     break;
                 case 199:
                     $long_msg="Wrong answer on test $test_num";
-                    $short_msg="WA-$test_num"; 
+                    $short_msg="WA-$test_num";
                     break;
 
             }
@@ -381,11 +394,11 @@ class Submission
         $test_num = $this->getTestNum();
         $error = $this->getError();
         $msg = self::getStatusMsg($status, $test_num, $error);
-        
+
         if ($status<100)
         {
             return "<span class='processing' id='result_{$this->getId()}'>$msg</span>";
-        }        
+        }
         else if ($status<200)
         {
             return "<span class='error'>$msg</span>";
