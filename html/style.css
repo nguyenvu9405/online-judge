@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 .primary_text, .tooltips i, .input-field .label label, .input-field input:focus + label, .input-field:hover label {
   color: rgba(0, 0, 0, 0.87); }
 
@@ -1125,6 +1125,10 @@ a.link-condensed {
 
 .display-3 {
   font-size: 48px; }
+
+.display-4 { 
+  font-size: 64px; }
+
 
 .display-1 {
   font-size: 24px; }
